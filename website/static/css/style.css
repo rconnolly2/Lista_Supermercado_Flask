@@ -1,0 +1,38 @@
+.boton-barra-menu{
+    background-color: rgb(202, 46, 46);
+    height: 30%;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.642);
+    text-align: justify;
+    padding: 14px;
+    border: none;
+    transition: 0s background-color color;
+    transition-delay: 0.3s;
+    transition-timing-function: ease-in;
+    transition-duration: 0.7s;
+
+}
+
+.boton-barra-menu:hover{
+    background-color: brown;
+    color: white;
+    border-radius: 5px;
+}
+
+.barra-menu{
+    background-color: rgb(202, 46, 46);
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body{
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.941);
+}
+
+p{
+    margin: 4px;
+}
