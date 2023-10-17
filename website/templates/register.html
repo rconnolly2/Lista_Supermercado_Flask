@@ -1,20 +1,19 @@
 {% extends "base_template.html" %}
-{% block title %}Pagina Login{% endblock %}
+{% block title %}Pagina Registrar{% endblock %}
 
 {% block body %} 
-<center><h2>Pagina Login</h2></center>
+<center><h2>Pagina Registrar</h2></center>
 <div class="recuadro-login-signup">
     <form class="campos-formulario" method="POST">
-        <h3 align="center">Formulario Login</h3>
+        <h3 align="center">Formulario Registrar</h3>
         <label for="email">Dirección de email:</label><br>
         <input style="width: 100%;" type="email" name="email" id="email" placeholder="Pon aquí tu email">
         <br>
         <label for="password">Contraseña:</label><br>
         <input style="width: 100%;" type="password" name="password" id="password" placeholder="Pon aquí tu contraseña">
         <br>
-        <button type="submit" class="boton-submit-formulario">Login</button>
+        <button type="submit" class="boton-submit-formulario">Registrar</button>
         <br>
     </form>
-    <a class="formulario-registrar" href="/auth/registrar">¿No tienes cuenta? Regístrate</a>
 </div>
 {% endblock %}

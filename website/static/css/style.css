@@ -28,6 +28,37 @@
     align-items: center;
 }
 
+.recuadro-login-signup{
+    height: 400px;
+    width: 400px;
+    border-radius: 4px;
+    background-color: azure;
+    margin: auto;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.283);
+}
+
+.campos-formulario{
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.boton-submit-formulario{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    margin-top: 10%;
+    padding: 6px;
+    border-radius: 2px;
+    background-color: rgb(202, 98, 98);
+}
+
+.formulario-registrar{
+    display: block;
+    margin-top: 80px;
+    margin-left: 2%;
+}
+
 body{
     margin: 0;
     background-color: rgba(255, 255, 255, 0.941);
