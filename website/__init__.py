@@ -2,7 +2,7 @@ from flask import Flask
 import mysql.connector
 from .views import views
 from .auth import auth
-from .models import crear_bd
+from .models import crear_bd, crear_tablas
 
 def create_app():
     app = Flask(__name__)
@@ -21,6 +21,7 @@ def create_app():
         )
     except mysql.connector.errors.ProgrammingError: # Si me da error al hacer conexión con la BD:
         crear_bd() # creo la base de datos si no existe
+        crear_tablas() # creo tablas
 
     
     #Añado mi conexión de la base de datos al contexto de aplicación:
