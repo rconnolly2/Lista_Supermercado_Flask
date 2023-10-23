@@ -11,6 +11,7 @@ def create_app():
     app.config["MYSQL_PASSWORD"] = "Hola"
     app.config["MYSQL_HOST"] = "localhost"
     app.config["MYSQL_DB"] = "lista_compra"
+
     
     try:
         bd = mysql.connector.connect(

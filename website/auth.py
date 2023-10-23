@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, current_app
+from flask import Blueprint, render_template, request, current_app, flash, redirect
 
 auth = Blueprint("auth", __name__)
 
@@ -9,9 +9,14 @@ def index():
 
 @auth.route("/login", methods=["GET", "POST"])
 def login():
-    email = request.form.get("email")
-    password = request.form.get("password")
-    print(email, password)
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        if "temp-mail.org" in email.split("@"):
+            flash("¡No aceptamos este tipo de email!")
+
+        print(email, password)
     return render_template("login.html")
 
 @auth.route("/registrar")
