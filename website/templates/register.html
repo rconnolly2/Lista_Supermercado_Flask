@@ -3,6 +3,29 @@
 
 {% block body %} 
 <center><h2>Pagina Registrar</h2></center>
+
+{% with errores = get_flashed_messages(category_filter=["error"]) %}
+    {% if errores %}
+        {% for error in errores %}
+            <div class="alert">
+                <img style='width: 12%; margin-left: 5%;' src="https://www.iconpacks.net/icons/1/free-error-icon-905-thumb.png">
+                <span style="font-size: 60%;">Error: {{ error }}</span>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+{% with infos = get_flashed_messages(category_filter=["info"]) %}
+    {% if infos %}
+            {% for info in infos %}
+                <div class="info">
+                    <img style='width: 15%; margin-left: 5%;' src="https://cdn3.iconfinder.com/data/icons/school-and-education-4/32/education_33-512.png">
+                    <span style="font-size: 60%;">Success: {{ info }}</span>
+                </div>
+            {% endfor %}
+    {% endif %}
+{% endwith %}
+
 <div class="recuadro-login-signup">
     <form class="campos-formulario" method="POST">
         <h3 align="center">Formulario Registrar</h3>

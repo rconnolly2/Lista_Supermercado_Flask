@@ -1,5 +1,6 @@
 import mysql.connector
 import os
+import hashlib
 
 ruta_este_archivo = os.path.dirname(os.path.abspath(__file__)) # la ruta absoluta que contiene este archivo .py
 host="localhost"
@@ -37,7 +38,30 @@ def crear_tablas():
         cursor.close()
         conexion_bd.close() # cierro conexión
         
-def registrar_usuario(email, password):
+def registrar_usuario(email: str, password_usuario: str, conexion_bd):
     '''
-    Para evitar Inyecciones 
+    Para evitar Inyecciones SQL utilizamos queries parametrizada
+
+    email => El email del usuario nuevo
+
+    password => Password del usuario sin encriptar
     '''
+    try:
+        usuario, _ = email.split("@") # cojo el usuario del correo
+        obj_hash = hashlib.sha256()
+        obj_hash.update(password_usuario.encode("utf-8")) # encripto con sha256
+        password_usuario_hex = str(obj_hash.hexdigest()) # resultado encriptado contraseña hexadecimal
+        cursor = conexion_bd.cursor()
+
+        # Creo usuario en nuestra tabla usuarios:
+        parameterized_insert_query = """ INSERT INTO Usuario(nombre_usuario, correo_usuario, password_usuario)
+                                    VALUES(%s, %s, %s);"""
+        #Ejecuto el insert query:
+        cursor.execute(parameterized_insert_query, (usuario, email, password_usuario_hex))
+        conexion_bd.commit()
+        print("Datos insertados correctamente!")
+    except mysql.connector.Error as error:
+        print("Hubo un error al ejecutar INSERT:" + str(error))
+    finally:
+        cursor.close() # cierro cursor conexión sql sigue abierta
+
