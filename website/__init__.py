@@ -23,6 +23,8 @@ def create_app():
     except mysql.connector.errors.ProgrammingError: # Si me da error al hacer conexión con la BD:
         crear_bd() # creo la base de datos si no existe
         crear_tablas() # creo tablas
+        print("Ejecuta otra vez el programa!")
+        exit()
 
     
     #Añado mi conexión de la base de datos al contexto de aplicación:

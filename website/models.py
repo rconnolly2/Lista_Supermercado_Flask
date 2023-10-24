@@ -36,3 +36,8 @@ def crear_tablas():
     finally:
         cursor.close()
         conexion_bd.close() # cierro conexión
+        
+def registrar_usuario(email, password):
+    '''
+    Para evitar Inyecciones 
+    '''
