@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, current_app, flash, redirect, url_for
+from flask import Blueprint, render_template, request, current_app, flash, redirect, url_for, session
 import hashlib
 from website.models import registrar_usuario
 auth = Blueprint("auth", __name__)
@@ -19,6 +19,7 @@ def login():
         print(correos_passwords_bd)
         email = request.form.get("email")
         password = request.form.get("password")
+        username = email.split("@")[0]
         # hash sha256 de contraseña usuario:
         obj_hash = hashlib.sha256()
         obj_hash.update(password.encode("utf-8")) # encripto a sha256 para integridad
@@ -31,7 +32,8 @@ def login():
                 print(hash_hex_password, datos[1])
                 if email == datos[0] and hash_hex_password == datos[1]: # Misma contraseña y password:
                     flash("Login valido!", category="info")
-                    print("Login valido!")
+                    session["username"] = username
+                    print(session)
 
 
 
