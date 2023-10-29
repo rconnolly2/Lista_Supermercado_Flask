@@ -1,0 +1,123 @@
+.grid-ofertas{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 30px;
+    background-color: blanchedalmond;
+}
+
+@media screen and (min-width: 700px) and (max-width: 1280px) {
+    .grid-ofertas{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 16px;
+        row-gap: 30px;
+        background-color: blanchedalmond;
+    }
+}
+
+@media screen and (min-width: 2500px) and (max-width: 3300px) {
+    .grid-ofertas{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        column-gap: 16px;
+        row-gap: 30px;
+        background-color: blanchedalmond;
+    }
+}
+
+
+.div-articulo{
+    width: 230px;
+    height: 400px;
+    background-color: azure;
+    
+}
+
+.div-articulo:hover{
+    transition-delay: 0.3s;
+    transition-duration: 1s;
+    box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.532);
+}
+
+.div-div-articulo{
+    display: block;
+    height: 50%;
+    background-color: rgb(255, 163, 163);
+    border: 2px solid black;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.div-img-articulo{
+    height: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titulo-articulo{
+    margin-left: 3%;
+    height: 20px;
+}
+
+.div-div-abajo-articulo{
+    display: block;
+    position: relative;
+
+}
+
+.combina-con{
+    color: rgb(253, 82, 82);
+    font-size: 12px;
+    margin-right: 20%;
+    margin-left: 3%;
+}
+
+.precio-kilo{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.div-descuento{
+    position: absolute;
+    z-index: 1;
+    margin-left: 3%;
+    background-color: yellow;
+    font-weight: bold;
+    text-align: center;
+    padding: 2%;
+    width: 60px;
+    height: 40px;
+}
+
+.precio-unidad{
+    margin: 0;
+    text-align: right;
+    line-height: 83px;
+    margin-right: 6%;
+}
+
+.unidades-articulo{
+    display: inline-block;
+    width: 20%;
+    appearance: textfield;
+    margin: 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.boton-enviar-uds{
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(125, 214, 125);
+}
+
+.formulario-unidades{
+    display: inline-block;
+    line-height: 6;
+    vertical-align: middle;
+    text-align: center;
+}
+

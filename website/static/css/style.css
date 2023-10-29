@@ -29,11 +29,13 @@
 }
 
 .recuadro-login-signup{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     height: 400px;
     width: 400px;
     border-radius: 4px;
     background-color: azure;
-    margin: auto;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.283);
 }
 
@@ -89,11 +91,105 @@
     color: rgba(0, 0, 0, 0.406);
 }
 
+.cupones-descuento{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: beige;
+}
+
+.texto-cupon{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    background-color: aquamarine;
+    text-align: center;
+}
+
+.cupones{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: blanchedalmond;
+}
+
+.cupon1{
+    width: 30%;
+    background-color: yellow;
+    text-align: center;
+}
+
+.cupon2{
+    width: 30%;
+    background-color: yellow;
+    text-align: center;
+}
+
+.envio-gratis{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: blueviolet;
+}
+.envio{
+    display: flex;
+    background-image: url('https://supermercado.eroski.es/ero_banner/img/bannerweb-bitthis-proveedores2023.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 46%;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.img-articulo-envio{
+    display: flex;
+    justify-content: center; /*para centrar horizontalmente*/
+    align-items: center; /*para centrar verticalmente*/
+    object-fit: cover;
+    overflow: hidden;
+    width: 50%;
+}
+
+.dentro-envio{
+    text-align: center;
+    margin-left: 5%;
+    width: 48%;
+    height: 100%;
+    background-color: coral;
+    overflow: hidden;
+
+}
+
+.titulo-subtitulo-envio {
+    height: 25%;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.boton-envio-gratis{
+    display: block;
+    margin-bottom: 20%;
+    padding: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: blueviolet;
+    width: 100px;
+    font-size: 10px;
+
+}
+
+
 body{
-    margin: 0;
+    margin: 0% 10% 0% 10%;
     background-color: rgba(255, 255, 255, 0.941);
 }
 
 p{
     margin: 4px;
+}
+
+div {
+    display: inline-block;
 }
