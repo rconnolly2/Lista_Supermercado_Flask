@@ -27,7 +27,6 @@ def crear_tablas():
     cursor = conexion_bd.cursor()
     archivo_sql = open((ruta_este_archivo + "\models\crear_tablas.sql"), "r")
     sql = archivo_sql.read().split(";")
-    print(sql)
     archivo_sql.close()
 
     # Añado tablas:
@@ -41,6 +40,26 @@ def crear_tablas():
         conexion_bd.close() # cierro conexión
 
 def crear_categorías():
+    conexion_bd = mysql.connector.connect(host=host, user=user, password=password, database=database)
+    cursor = conexion_bd.cursor()
+    archivo_sql = open((ruta_este_archivo + "\models\insertar_categorias.sql"), "r", encoding="utf-8")
+    sql = archivo_sql.read().split("\n")
+    print(sql)
+    archivo_sql.close()
+
+    # Añado categorías:
+    try:
+        for sql_statement in range(len(sql)):
+            if sql_statement != "": # no ejecuto elementos de la lista que sean "": 
+                cursor.execute(sql[sql_statement]) # código sql
+    except mysql.connector.Error as error:
+        print("Error al crear categorías: " + str(error))
+    finally:
+        cursor.close()
+        conexion_bd.commit()
+        conexion_bd.close() # cierro conexión
+
+def crear_artículos():
     pass
 
         

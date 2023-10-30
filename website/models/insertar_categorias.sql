@@ -1,4 +1,3 @@
---Aquí voy a insertar las categorías:
 INSERT INTO Categoria(nombre_categoria, categoria_padre) VALUES("Yogures", "Alimentación");
 INSERT INTO Categoria(nombre_categoria, categoria_padre) VALUES("Aceite, vinagre, sal, harina y pan rallado", "Alimentación");
 INSERT INTO Categoria(nombre_categoria, categoria_padre) VALUES("Detergente, jabón y suavizante", "Limpieza");
