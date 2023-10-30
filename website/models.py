@@ -26,17 +26,23 @@ def crear_tablas():
     conexion_bd = mysql.connector.connect(host=host, user=user, password=password, database=database)
     cursor = conexion_bd.cursor()
     archivo_sql = open((ruta_este_archivo + "\models\crear_tablas.sql"), "r")
-    sql = archivo_sql.read()
+    sql = archivo_sql.read().split(";")
+    print(sql)
     archivo_sql.close()
 
     # Añado tablas:
     try:
-        cursor.execute(sql) # código sql
+        for sql_statement in range(len(sql)):
+            cursor.execute(sql[sql_statement]) # código sql
     except mysql.connector.Error as error:
         print("Error al crear tablas: " + str(error))
     finally:
         cursor.close()
         conexion_bd.close() # cierro conexión
+
+def crear_categorías():
+    pass
+
         
 def registrar_usuario(email: str, password_usuario: str, conexion_bd):
     '''
