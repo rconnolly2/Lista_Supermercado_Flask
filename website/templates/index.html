@@ -55,67 +55,45 @@
 </div>
 
 <div class="grid-ofertas">
-    <div class="div-articulo">
-        <div class="div-div-articulo">
-            <img class="div-img-articulo" src="https://supermercado.eroski.es/images/22316988.jpg">
-            <p class="titulo-articulo">Bebible de fresa-frambuesa YOPRO, botella 300g</p>
-        </div>
 
-        <div class="div-div-articulo">
-            <div class="div-div-abajo-articulo" style="height: 25%; background-color: seagreen;">
-                <br>
-                <a class="combina-con">Combina con > </a><span class="precio-kilo">1 KILO A 8.17 €</span>
+    {% for articulo in artículos %}
+        <!--Variables artículos:-->
+        {% set nombre_articulo = articulo[1] %}
+        {% set peso_articulo = articulo[3] %}
+        {% set precio_peso = articulo[2] %}
+        {% set precio_articulo = articulo[4] %}
+
+        <div class="div-articulo">
+            <div class="div-div-articulo">
+                <img class="div-img-articulo" src="https://supermercado.eroski.es/images/22316988.jpg">
+                <p class="titulo-articulo"> {{ nombre_articulo }} {{ peso_articulo }}</p>
             </div>
 
-            <div class="div-div-abajo-articulo" style="height: 25%; background-color: darkgray;">
-                <div class="div-descuento">
-                    <p style="font-size: 11px;">2 unidad</p>
-                    <span style="font-size: 18px;">-50%</span>
+            <div class="div-div-articulo">
+                <div class="div-div-abajo-articulo" style="height: 25%; background-color: seagreen;">
+                    <br>
+                    <a class="combina-con">Combina con > </a><span class="precio-kilo">{{ precio_peso }}€</span>
                 </div>
-                
-                <h3 class="precio-unidad">2.45€</h3>
-            </div>
 
-            <div class="div-div-abajo-articulo" style="height: 50%; background-color: coral;">
-                <form class="formulario-unidades" action="" method="post">
-                    <input style="display: none;" type="text" name="id_articulo" value="1">
-                    <input class="unidades-articulo" type="number" name="cantidad" id="id_cantidad"> <input class="boton-enviar-uds" type="submit" value="Añadir">
-                </form>
+                <div class="div-div-abajo-articulo" style="height: 25%; background-color: darkgray;">
+                    <div class="div-descuento">
+                        <p style="font-size: 11px;">2 unidad</p>
+                        <span style="font-size: 18px;">-50%</span>
+                    </div>
+                    
+                    <h3 class="precio-unidad">{{ precio_articulo }}€</h3>
+                </div>
+
+                <div class="div-div-abajo-articulo" style="height: 50%; background-color: coral;">
+                    <form class="formulario-unidades" action="" method="post">
+                        <input style="display: none;" type="text" name="id_articulo" value="1">
+                        <input class="unidades-articulo" type="number" name="cantidad" id="id_cantidad"> <input class="boton-enviar-uds" type="submit" value="Añadir">
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="div-articulo">
-        hey
-    </div>
-
-    <div class="div-articulo">
-        hey
-    </div>
-
-    <div class="div-articulo">
-        hey
-    </div>
-
-    <div class="div-articulo">
-        hey
-    </div>
-
-    <div class="div-articulo">
-        hey
-    </div>
-
-    <div class="div-articulo">
-        hey
-    </div>
-
-    <div class="div-articulo">
-        hey
-    </div>
-
-    <div class="div-articulo">
-        hey
-    </div>
+    {% endfor %}
+    
 </div>
 
 
