@@ -7,13 +7,13 @@ CREATE TABLE Usuario(
     PRIMARY KEY(ID)
 );
 CREATE TABLE Categoria(
-    ID_categoria INT AUTO_INCREMENT,
+    ID_categoria INT UNIQUE AUTO_INCREMENT,
     nombre_categoria VARCHAR(50),
     categoria_padre VARCHAR(50),
     PRIMARY KEY(ID_categoria)
 );
 CREATE TABLE Articulo(
-    ID INT AUTO_INCREMENT,
+    ID INT UNIQUE AUTO_INCREMENT,
     nombre_articulo VARCHAR(50),
     precio_kilo VARCHAR(30),
     peso_articulo VARCHAR(30),

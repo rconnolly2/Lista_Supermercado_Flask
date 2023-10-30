@@ -2,7 +2,7 @@ from flask import Flask
 import mysql.connector
 from .views import views
 from .auth import auth
-from .models import crear_bd, crear_tablas, crear_categorías
+from .models import crear_bd, crear_tablas, crear_categorías, crear_artículos
 
 def create_app():
     app = Flask(__name__)
@@ -24,6 +24,7 @@ def create_app():
         crear_bd() # creo la base de datos si no existe
         crear_tablas() # creo tablas
         crear_categorías() # creo categorías de artículos
+        crear_artículos() # inserto artículos
         print("Ejecuta otra vez el programa!")
         exit()
 
