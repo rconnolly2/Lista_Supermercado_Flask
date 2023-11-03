@@ -2,6 +2,83 @@
 {% block title %}Cambiado{% endblock %}
 
 {% block body %}
+<!--Aquí estarán las categorías de productos después del header-->
+<div class="div-categorias">
+    <div class="div-div-categoria">
+        <a href=".">
+            <div class="div-categoria-top">
+                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
+            </div>
+
+            <div class="div-categoria-down">
+                <p>Alimentación</p> 
+            </div>    
+        </a>
+    </div>
+
+    <div style="background-color: bisque;" class="div-div-categoria">
+        <a href=".">
+            <div class="div-categoria-top">
+                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
+            </div>
+
+            <div class="div-categoria-down">
+                <p>Alimentación</p> 
+            </div>    
+        </a>
+    </div>
+
+    <div style="background-color: bisque;" class="div-div-categoria">
+        <a href=".">
+            <div class="div-categoria-top">
+                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
+            </div>
+
+            <div class="div-categoria-down">
+                <p>Alimentación</p> 
+            </div>    
+        </a>
+    </div>
+
+    <div style="background-color: bisque;" class="div-div-categoria">
+        <a href=".">
+            <div class="div-categoria-top">
+                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
+            </div>
+
+            <div class="div-categoria-down">
+                <p>Alimentación</p> 
+            </div>    
+        </a>
+    </div>
+
+    <div style="background-color: bisque;" class="div-div-categoria">
+        <a href=".">
+            <div class="div-categoria-top">
+                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
+            </div>
+
+            <div class="div-categoria-down">
+                <p>Alimentación</p> 
+            </div>    
+        </a>
+    </div>
+
+    <div style="background-color: bisque;" class="div-div-categoria">
+        <a href=".">
+            <div class="div-categoria-top">
+                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
+            </div>
+
+            <div class="div-categoria-down">
+                <p>Alimentación</p> 
+            </div>    
+        </a>
+    </div>
+
+    
+</div>
+
 
 <h2>¿Hola! te damos la bienvenida a la app de compra de BIB BIP</h2><br>
 <button>Iniciar Sesión</button> <button>Registrarse</button><br>
@@ -58,6 +135,7 @@
 
     {% for articulo in artículos %}
         <!--Variables artículos:-->
+        {% set id_articulo = articulo[0] %}
         {% set nombre_articulo = articulo[1] %}
         {% set peso_articulo = articulo[3] %}
         {% set precio_peso = articulo[2] %}
@@ -65,7 +143,7 @@
 
         <div class="div-articulo">
             <div class="div-div-articulo">
-                <img class="div-img-articulo" src="https://supermercado.eroski.es/images/22316988.jpg">
+                <img class="div-img-articulo" src="{{ url_for('static', filename='img-productos/' ~ id_articulo ~ '.jpg') }}">
                 <p class="titulo-articulo"> {{ nombre_articulo }} {{ peso_articulo }}</p>
             </div>
 

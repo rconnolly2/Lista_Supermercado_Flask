@@ -1,0 +1,56 @@
+@media (max-width: 877px) {
+    .div-categoria-top img{
+        display: none; /*cuando sea menor de 877px por ejemplo móviles quitar imágenes categorías  */
+    }
+
+    .div-div-categoria{
+        flex: 1; /*Cada caja tiene la misma prioridad y tamaño  */
+        width: 100px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+    }
+}
+
+.div-categorias{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+
+}
+
+@media (min-width: 877px){
+    .div-div-categoria{
+        flex: 1; /*Cada caja tiene la misma prioridad y tamaño  */
+        width: 100px;
+        height: 93px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+    }
+}
+
+.div-div-categoria:hover > a{ /*solo elementos a */
+    transition-delay: 0.3s;
+    transition-duration: 1s;
+    opacity: 0.3;
+}
+
+.div-categoria-down{
+    height: 50%;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+}
+
+@media (min-width: 877px){
+    .div-categoria-top{
+        height: 50%;
+        display: flex;
+        justify-content: center;
+    }
+}
