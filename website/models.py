@@ -105,3 +105,23 @@ def registrar_usuario(email: str, password_usuario: str, conexion_bd):
     finally:
         cursor.close() # cierro cursor conexión sql sigue abierta
 
+
+def dame_categorías(subcategoria=False):
+    conexion_bd = mysql.connector.connect(host=host, user=user, password=password, database=database)
+    cursor = conexion_bd.cursor()
+    try:
+        if subcategoria != True:
+            cursor.execute("SELECT DISTINCT categoria_padre FROM categoria;")
+            lista_categorías = cursor.fetchall()
+            return lista_categorías # devuelvo lista categorías padre
+        else:
+            cursor.execute("SELECT DISTINCT nombre_categoria, categoria_padre FROM categoria;")
+            lista_categorías = cursor.fetchall()
+            return lista_categorías # devuelvo lista subcategorias con su categoria padre
+    except mysql.connector.Error as error:
+        print("Hubo un error al consultar categorías:" + str(error))
+    finally:
+        cursor.close()
+
+
+

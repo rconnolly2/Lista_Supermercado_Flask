@@ -1,0 +1,114 @@
+{% extends "base_template.html" %}
+{% block title %}Cambiado{% endblock %}
+
+{% block body %}
+<!--Aquí estarán las categorías de productos después del header-->
+
+<div class="div-categorias">
+
+    {% for categoria in categorías %}
+            <!--Variables categorías:-->
+            {% set nom_categoría = categoria[0] %}
+            <div style="background-color: bisque;" class="div-div-categoria">
+                <a href="./{{nom_categoría}}">
+                    <div class="div-categoria-top">
+                        <img class="img-categoria" src="{{ url_for('static', filename='img-categorias/' ~ nom_categoría ~ '.svg') }}">
+                    </div>
+        
+                    <div class="div-categoria-down">
+                        <p>{{nom_categoría}}</p> 
+                    </div>    
+                </a>
+            </div>
+    {% endfor %}
+
+</div>
+
+<h1>{{categoría_sel}}</h1>
+
+<div class="div-categorias-izq">
+    <ul>
+        <h3>&#9658; Categoría seleccionada</h3>
+        <li>d</li>
+        <li>d</li>
+        <li>d</li>
+        <li>d</li>
+    </ul>
+    <br><br>
+    <ul>
+        <h4>Otra cosa</h4>
+        <li>d</li>
+        <li>d</li>
+        <li>d</li>
+        <li>d</li>
+    </ul>
+
+    <ul>
+        <h4>Otra cosa</h4>
+        <li>d</li>
+        <li>d</li>
+        <li>d</li>
+        <li>d</li>
+    </ul>
+
+    <ul>
+        <h4>Otra cosa</h4>
+        <li>d</li>
+        <li>d</li>
+        <li>d</li>
+        <li>d</li>
+    </ul>
+</div>
+
+
+<div class="div-categorias-der">
+    <div class="grid-ofertas">
+
+        {% for articulo in artículos %}
+            <!--Variables artículos:-->
+            {% set id_articulo = articulo[0] %}
+            {% set nombre_articulo = articulo[1] %}
+            {% set peso_articulo = articulo[3] %}
+            {% set precio_peso = articulo[2] %}
+            {% set precio_articulo = articulo[4] %}
+    
+            <div class="div-articulo">
+                <div class="div-div-articulo">
+                    <img class="div-img-articulo" src="{{ url_for('static', filename='img-productos/' ~ id_articulo ~ '.jpg') }}">
+                    <p class="titulo-articulo"> {{ nombre_articulo }} {{ peso_articulo }}</p>
+                </div>
+    
+                <div class="div-div-articulo">
+                    <div class="div-div-abajo-articulo" style="height: 25%; background-color: seagreen;">
+                        <br>
+                        <a class="combina-con">Combina con > </a><span class="precio-kilo">{{ precio_peso }}€</span>
+                    </div>
+    
+                    <div class="div-div-abajo-articulo" style="height: 25%; background-color: darkgray;">
+                        <div class="div-descuento">
+                            <p style="font-size: 11px;">2 unidad</p>
+                            <span style="font-size: 18px;">-50%</span>
+                        </div>
+                        
+                        <h3 class="precio-unidad">{{ precio_articulo }}€</h3>
+                    </div>
+    
+                    <div class="div-div-abajo-articulo" style="height: 50%; background-color: coral;">
+                        <form class="formulario-unidades" action="" method="post">
+                            <input style="display: none;" type="text" name="id_articulo" value="1">
+                            <input class="unidades-articulo" type="number" name="cantidad" id="id_cantidad"> <input class="boton-enviar-uds" type="submit" value="Añadir">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
