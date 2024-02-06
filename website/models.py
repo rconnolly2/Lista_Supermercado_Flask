@@ -5,7 +5,7 @@ import hashlib
 ruta_este_archivo = os.path.dirname(os.path.abspath(__file__)) # la ruta absoluta que contiene este archivo .py
 host="localhost"
 user="root"
-password="Hola"
+password="root"
 database="lista_compra"
 
 def crear_bd():

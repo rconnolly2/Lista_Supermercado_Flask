@@ -4,79 +4,23 @@
 {% block body %}
 <!--Aquí estarán las categorías de productos después del header-->
 <div class="div-categorias">
-    <div class="div-div-categoria">
-        <a href=".">
-            <div class="div-categoria-top">
-                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
+
+    {% for categoria in categorías %}
+            <!--Variables categorías:-->
+            {% set nom_categoría = categoria[0] %}
+            <div style="background-color: bisque;" class="div-div-categoria">
+                <a href="./{{nom_categoría}}">
+                    <div class="div-categoria-top">
+                        <img class="img-categoria" src="{{ url_for('static', filename='img-categorias/' ~ nom_categoría ~ '.svg') }}">
+                    </div>
+        
+                    <div class="div-categoria-down">
+                        <p>{{nom_categoría}}</p> 
+                    </div>    
+                </a>
             </div>
+    {% endfor %}
 
-            <div class="div-categoria-down">
-                <p>Alimentación</p> 
-            </div>    
-        </a>
-    </div>
-
-    <div style="background-color: bisque;" class="div-div-categoria">
-        <a href=".">
-            <div class="div-categoria-top">
-                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
-            </div>
-
-            <div class="div-categoria-down">
-                <p>Alimentación</p> 
-            </div>    
-        </a>
-    </div>
-
-    <div style="background-color: bisque;" class="div-div-categoria">
-        <a href=".">
-            <div class="div-categoria-top">
-                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
-            </div>
-
-            <div class="div-categoria-down">
-                <p>Alimentación</p> 
-            </div>    
-        </a>
-    </div>
-
-    <div style="background-color: bisque;" class="div-div-categoria">
-        <a href=".">
-            <div class="div-categoria-top">
-                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
-            </div>
-
-            <div class="div-categoria-down">
-                <p>Alimentación</p> 
-            </div>    
-        </a>
-    </div>
-
-    <div style="background-color: bisque;" class="div-div-categoria">
-        <a href=".">
-            <div class="div-categoria-top">
-                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
-            </div>
-
-            <div class="div-categoria-down">
-                <p>Alimentación</p> 
-            </div>    
-        </a>
-    </div>
-
-    <div style="background-color: bisque;" class="div-div-categoria">
-        <a href=".">
-            <div class="div-categoria-top">
-                <img class="img-categoria" src="https://supermercado.eroski.es/assets/meta/fixed/imgs/header/alimentacion.svg">
-            </div>
-
-            <div class="div-categoria-down">
-                <p>Alimentación</p> 
-            </div>    
-        </a>
-    </div>
-
-    
 </div>
 
 
