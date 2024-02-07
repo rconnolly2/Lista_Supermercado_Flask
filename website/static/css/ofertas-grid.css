@@ -148,12 +148,17 @@
 
 .div-categorias-izq li {
     list-style-type: none;
+    padding: 2px;
 
 
 }
 
 .div-categorias-izq h3,h4 {
     padding: 2px;
+}
+
+.div-categorias-izq a {
+    text-decoration: none;
 }
 
 .div-categorias-izq h3:hover,h4:hover {

@@ -30,7 +30,29 @@ def categoria(categoria):
         # Query datos artículos de la categoria seleccionada
         cursor.execute("SELECT * FROM Articulo WHERE ID_categoria in (SELECT ID_categoria FROM categoria WHERE categoria_padre='" + categoria + "');")
         datos_artículos = cursor.fetchall()
-        print(dic_cat)
+        return render_template("categorias.html", categorías=lista_categorías, categoría_sel=categoria, dict_categorías=dic_cat, artículos=datos_artículos)
+    else:
+        return "<h1>Nada</h1>"
+
+
+def subcategoria_valida(categoria_sel: str) -> bool:
+    l_subcat = [dic_cat[cat] for cat in dic_cat]
+    for i in range(len(l_subcat)):
+        for j in range(len(l_subcat[i])):
+            if categoria_sel==l_subcat[i][j]:
+                return True
+            
+    return False # si no encuentra devuelvo false
+
+
+@views.route("/subcategoria/<categoria>", methods=["POST", "GET"])
+def subcategoria(categoria):
+    if subcategoria_valida(categoria):
+        bd = current_app.bd
+        cursor = bd.cursor()
+        # Query datos artículos de la categoria seleccionada
+        cursor.execute("SELECT * FROM Articulo WHERE ID_categoria in (SELECT ID_categoria FROM categoria WHERE nombre_categoria='" + categoria + "');")
+        datos_artículos = cursor.fetchall()
         return render_template("categorias.html", categorías=lista_categorías, categoría_sel=categoria, dict_categorías=dic_cat, artículos=datos_artículos)
     else:
         return "<h1>Nada</h1>"

@@ -10,7 +10,7 @@
             <!--Variables categorías:-->
             {% set nom_categoría = categoria[0] %}
             <div style="background-color: bisque;" class="div-div-categoria">
-                <a href="./{{nom_categoría}}">
+                <a href="/{{nom_categoría}}">
                     <div class="div-categoria-top">
                         <img class="img-categoria" src="{{ url_for('static', filename='img-categorias/' ~ nom_categoría ~ '.svg') }}">
                     </div>
@@ -30,9 +30,9 @@
     {% for cat, subcats in dict_categorías.items() %}
         {% if cat in categoría_sel %} <!--Si esta seleccionado print-->
             <ul>
-                <h4>&#9658; {{ cat }}</h4>
+                <h4><a href="/{{cat}}">&#9658; {{ cat }}</a></h4>
                 {% for subcat in subcats %}
-                <li>{{ subcat }}</li>
+                <li><a href="/subcategoria/{{subcat}}">{{ subcat }}</a></li>
                 {% endfor %}
             </ul>
             <br><br>
@@ -41,9 +41,13 @@
 
         {% if not cat in categoría_sel %} <!--Si no esta seleccionado print-->
             <ul>
-                <h4>{{ cat }}</h4>
+                <h4><a href="/{{cat}}">{{ cat }}</a></h4>
                 {% for subcat in subcats %}
-                <li>{{ subcat }}</li>
+                {% if subcat==categoría_sel %}
+                <li><a href="/subcategoria/{{subcat}}">&#9658; {{ subcat }}</a></li>
+                {% else %}
+                <li><a href="/subcategoria/{{subcat}}">{{ subcat }}</a></li>
+                {% endif %}
                 {% endfor %}
             </ul>
         {% endif %}
