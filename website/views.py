@@ -3,7 +3,7 @@ from .models import dame_categorías
 
 views = Blueprint("views", __name__)
 lista_categorías = dame_categorías()
-lista_subcategorías = dame_categorías(True)
+dic_cat = dame_categorías(True)
 
 
 @views.route("/", methods=["POST", "GET"])
@@ -30,9 +30,9 @@ def categoria(categoria):
         # Query datos artículos de la categoria seleccionada
         cursor.execute("SELECT * FROM Articulo WHERE ID_categoria in (SELECT ID_categoria FROM categoria WHERE categoria_padre='" + categoria + "');")
         datos_artículos = cursor.fetchall()
-        return render_template("categorias.html", categorías=lista_categorías, categoría_sel=categoria, artículos=datos_artículos)
+        print(dic_cat)
+        return render_template("categorias.html", categorías=lista_categorías, categoría_sel=categoria, dict_categorías=dic_cat, artículos=datos_artículos)
     else:
-        print(categoria)
         return "<h1>Nada</h1>"
         
 

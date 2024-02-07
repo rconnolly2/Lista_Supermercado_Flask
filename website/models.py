@@ -117,7 +117,15 @@ def dame_categorías(subcategoria=False):
         else:
             cursor.execute("SELECT DISTINCT nombre_categoria, categoria_padre FROM categoria;")
             lista_categorías = cursor.fetchall()
-            return lista_categorías # devuelvo lista subcategorias con su categoria padre
+            diccionario_cat = {} # creo diccionario, key contiene categoria padre
+            
+            for i in range(len(lista_categorías)): # itero sobre la lista que contiene tuples
+                if not lista_categorías[i][1] in diccionario_cat: # si el diccionario no tiene esta key
+                    diccionario_cat[lista_categorías[i][1]] = [lista_categorías[i][0]]
+                else:
+                    diccionario_cat[lista_categorías[i][1]].append(lista_categorías[i][0])
+
+            return diccionario_cat # devuelvo diccionario, key categoria padre y lista de sub categorías
     except mysql.connector.Error as error:
         print("Hubo un error al consultar categorías:" + str(error))
     finally:

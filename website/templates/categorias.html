@@ -27,37 +27,29 @@
 <h1>{{categoría_sel}}</h1>
 
 <div class="div-categorias-izq">
-    <ul>
-        <h3>&#9658; Categoría seleccionada</h3>
-        <li>d</li>
-        <li>d</li>
-        <li>d</li>
-        <li>d</li>
-    </ul>
-    <br><br>
-    <ul>
-        <h4>Otra cosa</h4>
-        <li>d</li>
-        <li>d</li>
-        <li>d</li>
-        <li>d</li>
-    </ul>
+    {% for cat, subcats in dict_categorías.items() %}
+        {% if cat in categoría_sel %} <!--Si esta seleccionado print-->
+            <ul>
+                <h4>&#9658; {{ cat }}</h4>
+                {% for subcat in subcats %}
+                <li>{{ subcat }}</li>
+                {% endfor %}
+            </ul>
+            <br><br>
+        {% endif %}
 
-    <ul>
-        <h4>Otra cosa</h4>
-        <li>d</li>
-        <li>d</li>
-        <li>d</li>
-        <li>d</li>
-    </ul>
 
-    <ul>
-        <h4>Otra cosa</h4>
-        <li>d</li>
-        <li>d</li>
-        <li>d</li>
-        <li>d</li>
-    </ul>
+        {% if not cat in categoría_sel %} <!--Si no esta seleccionado print-->
+            <ul>
+                <h4>{{ cat }}</h4>
+                {% for subcat in subcats %}
+                <li>{{ subcat }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+    {% endfor %}
 </div>
 
 

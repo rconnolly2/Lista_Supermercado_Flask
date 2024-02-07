@@ -13,14 +13,16 @@
         column-gap: 16px;
         row-gap: 30px;
         background-color: blanchedalmond;
+        width: 80vw;
     }
 
     .div-categorias-izq {
+        width: 0%;
         display: none;
     }
 
     .div-categorias-der {
-        width: 100%;
+        width: 50vw;
     }
 }
 
@@ -142,4 +144,26 @@
 .div-categorias-der {
     width: 79%;
     
+}
+
+.div-categorias-izq li {
+    list-style-type: none;
+
+
+}
+
+.div-categorias-izq h3,h4 {
+    padding: 2px;
+}
+
+.div-categorias-izq h3:hover,h4:hover {
+    transition-duration: 1s;
+    transition-delay: 0.3s;
+    background-color: bisque;
+}
+
+.div-categorias-izq li:hover {
+    transition-duration: 1s;
+    transition-delay: 0.3s;
+    background-color: bisque;
 }
