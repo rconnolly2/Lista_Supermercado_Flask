@@ -8,7 +8,7 @@ dic_cat = dame_categorías(True)
 
 @views.route("/", methods=["POST", "GET"])
 def index():
-    if request.method=="POST":
+    if request.method=="POST" and "username" in session:
         print(request.form.get("id_articulo") + " cantidad: " + request.form.get("cantidad"))
 
     bd = current_app.bd
